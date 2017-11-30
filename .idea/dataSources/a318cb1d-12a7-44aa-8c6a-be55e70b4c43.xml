@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="MySQL - db_sw@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="2.6">
+    <schema id="1" name="db_sw">
+      <visible>1</visible>
+    </schema>
+    <schema id="2" name="db_spring"/>
+    <schema id="3" name="grails"/>
+    <schema id="4" name="information_schema"/>
+    <schema id="5" name="mysql"/>
+    <schema id="6" name="mysql_shiyan"/>
+    <schema id="7" name="performance_schema"/>
+    <schema id="8" name="sys"/>
+    <table id="9" parent="1" name="t_banner"/>
+    <table id="10" parent="1" name="t_task"/>
+    <table id="11" parent="1" name="t_admin_user"/>
+    <column id="12" parent="9" name="id">
+      <mandatory>1</mandatory>
+      <data-type>int(12)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="13" parent="9" name="task_id">
+      <mandatory>1</mandatory>
+      <data-type>int(12)|0</data-type>
+    </column>
+    <index id="14" parent="9" name="task_id">
+      <columns>task_id</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <key id="15" parent="9" name="PRIMARY">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <foreign-key id="16" parent="9" name="task_id">
+      <columns>task_id</columns>
+      <ref-key>~.t_task.PRIMARY</ref-key>
+      <cascade-update-rule>no_action</cascade-update-rule>
+      <cascade-delete-rule>no_action</cascade-delete-rule>
+    </foreign-key>
+    <column id="17" parent="10" name="id">
+      <mandatory>1</mandatory>
+      <data-type>int(12)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="18" parent="10" name="title">
+      <mandatory>1</mandatory>
+      <data-type>varchar(50)|0</data-type>
+    </column>
+    <column id="19" parent="10" name="info">
+      <data-type>varchar(100)|0</data-type>
+    </column>
+    <column id="20" parent="10" name="icon_url">
+      <mandatory>1</mandatory>
+      <data-type>varchar(100)|0</data-type>
+    </column>
+    <column id="21" parent="10" name="banner_url">
+      <data-type>varchar(100)|0</data-type>
+    </column>
+    <column id="22" parent="10" name="banner_title">
+      <data-type>varchar(100)|0</data-type>
+    </column>
+    <column id="23" parent="10" name="banner_link_url">
+      <data-type>varchar(100)|0</data-type>
+    </column>
+    <column id="24" parent="10" name="link_url">
+      <mandatory>1</mandatory>
+      <data-type>varchar(100)|0</data-type>
+    </column>
+    <key id="25" parent="10" name="PRIMARY">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <column id="26" parent="11" name="id">
+      <mandatory>1</mandatory>
+      <data-type>int(12)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="27" parent="11" name="username">
+      <mandatory>1</mandatory>
+      <data-type>varchar(50)|0</data-type>
+    </column>
+    <column id="28" parent="11" name="password">
+      <mandatory>1</mandatory>
+      <data-type>varchar(100)|0</data-type>
+    </column>
+    <key id="29" parent="11" name="PRIMARY">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+  </database-model>
+</dataSource>

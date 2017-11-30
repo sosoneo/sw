@@ -1,29 +1,75 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: sosoneo
-  Date: 2017/11/24
-  Time: 下午2:45
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>首页</title>
-    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
-    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css"
-          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-</head>
-<body>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="rapid" uri="http://www.rapid-framework.org.cn/rapid" %>
+<style>
+    .list-row {
+        width: 100%;
+        height: 80px;
+        border-bottom: solid 1px;
+    }
+    .list-row-id {
+        float: left;
+        font-size: 18px;
+        font-weight: bold;
+        margin-top: 20px;
+        margin-left: 2%;
+        margin-right: 2%;
+        text-align: center;
+    }
+    .list-row-icon {
+        float: left;
+        margin-top: 15px;
+    }
+    .list-row-box {
+        float: left;
+        margin-top: 10px;
+        margin-left: 20px;
+    }
+    .list-row-box-title {
+        font-size: 14px;
+    }
+    .list-row-box-info {
+        font-size: 12px;
+    }
+    .list-row-button {
+        float: right;
+        margin-top: 20px;
+        height: 30px;
+    }
+</style>
+<rapid:override name="title">
+    苹果平台
+</rapid:override>
+<rapid:override name="content">
+    <c:if test="${!empty taskList}">
+        <% int rankInt=1; %>
+        <c:forEach items="${taskList}" var="task">
+            <a href="${task.linkUrl}">
+                <div class="list-row">
+                    <div class="list-row-id">
+                        <%= rankInt %>
+                        <%rankInt++;%>
+                    </div>
+                    <div class="list-row-icon">
+                        <img src="/resources/static/img/${task.iconUrl}" width="50px" height="50px">
+                    </div>
+                    <div class="list-row-box">
+                        <div class="list-row-box-title">
+                            ${task.title}
+                        </div>
+                        <div class="list-row-box-info">
+                            ${task.info}
+                        </div>
+                    </div>
+                    <div class="list-row-button">
+                        <button>
+                            加入
+                        </button>
+                    </div>
+                </div>
+            </a>
+        </c:forEach>
+    </c:if>
+</rapid:override>
+<%@ include file="admin/base/base.jsp"%>
 
-<!-- Bootstrap core JavaScript================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
-<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
-<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"
-        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-        crossorigin="anonymous"></script>
-</body>
-</html>

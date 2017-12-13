@@ -32,14 +32,14 @@ public class LoginInterceptor implements HandlerInterceptor {
                 return true;
             }
             // 不符合条件的跳转到登录界面
-            //    response.sendRedirect("/admin/login");
+            httpServletResponse.sendRedirect("/admin/login");
             // 解决重定向登录界面在iframe页面显示不在top页面显示的问题
-            PrintWriter out = httpServletResponse.getWriter();
-            out.println("<html>");
-            out.println("<script>");
-            out.println("window.open('/admin/login', '_top')");
-            out.println("</script>");
-            out.println("</html>");
+//            PrintWriter out = httpServletResponse.getWriter();
+//            out.println("<html>");
+//            out.println("<script>");
+//            out.println("window.open('/admin/login', '_top')");
+//            out.println("</script>");
+//            out.println("</html>");
             return false;
         }
         return true;

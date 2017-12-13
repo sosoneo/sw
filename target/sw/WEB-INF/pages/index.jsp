@@ -31,10 +31,8 @@
     .list-row-box-info {
         font-size: 12px;
     }
-    .list-row-button {
-        float: right;
-        margin-top: 20px;
-        height: 30px;
+    .list-row-box-join {
+        font-size: 10px;
     }
 </style>
 <rapid:override name="title">
@@ -60,11 +58,10 @@
                         <div class="list-row-box-info">
                             ${task.info}
                         </div>
-                    </div>
-                    <div class="list-row-button">
-                        <button>
-                            加入
-                        </button>
+                        <div class="list-row-box-join">
+                            已有62341人加入
+                        </div>
+                        <%--<button type="button" class="btn btn-default">加入</button>--%>
                     </div>
                 </div>
             </a>
